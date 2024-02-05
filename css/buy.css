@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: O;
+  box-sizing: border-box;
+}
+body {
+  background-color: #faf8f5;
+}
+h1 {
+  font-size: 50px;
+  margin-top: 30px;
+  font-weight: 700;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+}
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 使外部容器填满视口高度 */
+}
+
+.container {
+  display: flex; /* 使用Flexbox布局 */
+  align-items: center; /* 垂直居中子项 */
+  margin-left: 100px;
+  margin-right: 100px;
+  /* 可以在这里添加一些padding或margin来调整布局 */
+}
+
+h2 {
+  font-family: "Lora", serif;
+  margin-bottom: 10px;
+}
+h3 {
+  font-family: "Cormorant Garamond", serif;
+  margin-bottom: 50px;
+}
+
+h2,
+h3 {
+  text-align: center;
+}
+
+.top {
+  font-family: "Lora", serif;
+  margin-bottom: 30px;
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+.bottom {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.box {
+  margin: 80px; /* 盒子之间的间距 */
+}
+
+.left-box {
+  width: 50%;
+}
+
+.right-box {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.small {
+  text-align: right;
+  font-family: "Lora", serif;
+}
+.button-container {
+  display: flex; /* 以flex布局显示按钮，确保它们并排 */
+  justify-content: center;
+  align-items: center;
+  gap: 490px; /* 在按钮之间添加一些间隙 */
+}
+
+.btn {
+  padding: 10px 40px; /* 添加一些内边距以增大按钮大小 */
+  border: 1px solid #333; /* 移除边框 */
+  background-color: #faf8f5;
+  color: #000; /* 设置默认文字颜色 */
+  margin-bottom: 100px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-family: "Cormorant Garamond", serif;
+  cursor: pointer; /* 鼠标悬停时显示手形图标 */
+  transition: background-color 0.3s, color 0.3s; /* 平滑过渡效果 */
+}
+
+.btn:hover {
+  background-color: #000; /* 鼠标悬停时的背景颜色 */
+  color: #fff; /* 鼠标悬停时的文字颜色 */
+}

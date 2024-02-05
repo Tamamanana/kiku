@@ -1,0 +1,945 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #faf8f5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 头部容器样式，初始透明背景 */
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent; /* 初始背景色透明 */
+  transition: background-color 0.3s; /* 背景颜色变化的平滑过渡 */
+  z-index: 1001;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px; /* 设置内边距 */
+}
+.main-logo img {
+  width: 100px; /* 调整 logo 的宽度 */
+  height: auto;
+}
+.main-logo {
+  margin-bottom: 0;
+  margin-left: 31.45322px;
+  margin-top: 23.443px;
+}
+/* 移除#logo和#hamburger-menu的固定定位 */
+#logo,
+#hamburger-menu {
+  position: static;
+}
+
+/* logo样式 */
+#logo {
+  display: flex;
+  visibility: hidden;
+  padding: 10px; /* 调整 logo 的内边距 */
+}
+
+#logo a {
+  text-decoration: none;
+}
+
+#logo img {
+  width: 100px; /* 调整 logo 的宽度 */
+  height: auto;
+}
+
+/* 汉堡包菜单样式 */
+#hamburger-menu {
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 1001;
+}
+
+#hamburger-menu span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: black;
+  transition: all 0.3s ease;
+}
+
+/* 全屏菜单样式 */
+#fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  clip-path: circle(0% at 100% 0); /* 初始为圆形 */
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.965);
+  color: white;
+  transition: clip-path 0.5s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#fullscreen-menu.show {
+  /* transform: scale(1); */
+  clip-path: circle(150% at 100% 0); /* 扩展为全屏 */
+}
+
+#fullscreen-menu nav a {
+  /* 其他样式保持不变 */
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 20px 0;
+  margin: 15px 0;
+  text-align: center;
+  font-family: "Lora", serif;
+}
+
+/* 汉堡包激活状态 */
+#hamburger-menu.hamburger-active span:nth-child(1),
+#hamburger-menu.hamburger-active span:nth-child(3) {
+  background: rgb(250, 246, 246);
+}
+
+.hamburger-active span:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-active span:last-child {
+  transform: rotate(-45deg) translate(7px, -6px);
+  background: white;
+}
+
+/* 全屏菜单中的菜单项样式 */
+#fullscreen-menu nav a {
+  display: block;
+  border-radius: 50px;
+
+  color: white;
+  text-decoration: none;
+  padding: 20px 0;
+  margin: 40px 0;
+  font-size: 30px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s; /* 平滑过渡效果 */
+}
+
+/* 鼠标悬停在菜单项上时的样式 */
+#fullscreen-menu nav a:hover {
+  border-radius: 50px;
+  color: rgb(0, 0, 0); /* 文字颜色，可以根据需要调整 */
+  background-color: #faf8f5;
+  padding: 20px; /* 增加填充以使方框更明显 */
+}
+
+.line {
+  margin-top: 18px;
+}
+.thick-line {
+  height: 6px;
+  background-color: black;
+}
+
+.thin-line {
+  height: 4px;
+  margin-top: 8px;
+  background-color: black;
+}
+
+.thick-line,
+.thin-line {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.main-image {
+  position: relative;
+  display: flex; /* 应用 Flexbox */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 100vh; /* 容器高度设为视口高度 */
+  margin-top: 15px;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.image-title span {
+  display: inline-block; /* 允许应用转换 */
+  animation: wave 1.5s infinite; /* 应用动画 */
+  animation-delay: calc(0.1s * var(--i)); /* 动画延迟 */
+}
+
+.main-image img {
+  max-width: 100%;
+  max-height: 100vh;
+  height: auto;
+}
+
+.image-title {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  margin: 10px;
+  color: rgb(4, 4, 4);
+  font-family: "Cormorant Garamond", serif;
+  margin-top: 30px;
+}
+.image-title p {
+  font-size: 16px;
+  letter-spacing: 8px;
+  margin-left: 200px;
+}
+
+h1 {
+  font-size: 110px;
+  letter-spacing: 80px; /* 减少标题中字母之间的间距 */
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.facebook-logo {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.ins-logo {
+  margin-bottom: 30px;
+}
+
+.vertical-line {
+  height: 25vh;
+  width: 1px;
+  background-color: black;
+  left: 50%;
+}
+
+.centered-box {
+  align-items: center;
+  justify-content: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.centered-box p {
+  text-align: center;
+  margin: 0;
+}
+
+.fancy-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.fancy-title h2 {
+  text-align: center;
+  font-size: 50px;
+  color: #333;
+  letter-spacing: 3px;
+  margin-top: 80px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.fancy-title-text {
+  position: relative; /* 添加相对定位 */
+  z-index: 2; /* 确保文字在图片上方 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  font-family: "Lora", serif;
+}
+
+.fancy-title-text p {
+  line-height: 4;
+  text-align: center;
+}
+
+.right-float-image {
+  position: absolute; /* 使用绝对定位 */
+  right: 0; /* 右对齐 */
+  top: 0;
+  width: 23%; /* 图片宽度 */
+  z-index: 1; /* 图片在文字下方 */
+  height: auto;
+  margin-top: 70%;
+}
+
+.image-with-lines-container {
+  text-align: center; /* 使图片居中 */
+  margin-top: 180px;
+  margin-bottom: 200px;
+}
+
+.center-aligned-image {
+  width: 70%; /* 图片宽度 */
+  height: auto; /* 保持纵横比 */
+  display: block; /* 使图片为块级元素 */
+  margin: 0 auto; /* 图片居中 */
+}
+
+.big-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 160px;
+  margin-bottom: 100px;
+}
+
+.medium-box {
+  width: 50%; /* 中盒子占据大盒子的一半宽度 */
+}
+
+.left {
+  padding-right: 10px; /* 如果需要，在中盒子之间留出一些空间 */
+}
+
+.right {
+  padding-left: 10px; /* 如果需要，在中盒子之间留出一些空间 */
+  display: flex; /* 使图片垂直居中 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+}
+
+.small-box {
+  margin-bottom: 50px; /* 如果需要，在小盒子之间留出一些空间 */
+  display: flex;
+  flex-direction: column;
+}
+
+.medium-box left {
+  display: flex;
+  flex-direction: column; /* 子元素沿垂直方向排列 */
+  align-items: baseline; /* 基线对齐 */
+}
+
+.small-box h2,
+.text-box h2 {
+  font-size: 48px;
+  text-align: center;
+  letter-spacing: 3px;
+  font-family: "Cormorant Garamond", serif;
+  /* 添加标题的样式 */
+}
+
+.small-box h2 {
+  margin-top: 150px;
+  margin-left: 80px;
+}
+
+.small-box p {
+  line-height: 3;
+  margin-left: 180px;
+  font-family: "Lora", serif;
+  overflow-wrap: break-word; /* 确保长单词能够在边界处断开 */
+}
+
+.medium-box.right img {
+  width: 50%; /* 图片宽度设置为盒子的100%，根据需要调整 */
+  height: auto; /* 保持图片纵横比 */
+}
+
+.big-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.medium-container {
+  flex-basis: 50%; /* 每个中容器基于flex容器剩余空间的一半 */
+  display: flex;
+  flex-direction: column; /* 使中容器内的内容垂直排列 */
+  align-items: center; /* 垂直居中对齐中容器内的内容 */
+  justify-content: center; /* 水平居中对齐中容器内的内容 */
+}
+
+.medium-container right {
+  display: flex;
+  flex-direction: column; /* 确保子元素垂直排列 */
+  align-items: flex-start; /* 子元素左对齐 */
+}
+
+.text-box {
+  width: 100%; /* 文本盒子宽度设置为中容器的100% */
+  text-align: center; /* 文本居中 */
+  margin: 30px 0; /* 为文本盒子添加上下外边距 */
+  display: flex; /* 应用Flexbox */
+  align-items: baseline; /* 基线对齐 */
+  width: 100%; /* 确保占满整个容器宽度 */
+}
+.text-box p {
+  text-align: left;
+  line-height: 3;
+  font-family: "Lora", serif;
+}
+
+.centered-img {
+  max-width: 60%; /* 图片最大宽度，根据需要调整 */
+  height: auto; /* 保持图片纵横比 */
+}
+
+/* 轮播 */
+.carousel {
+  position: relative;
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 50px 0;
+}
+.cancel a {
+  color: black;
+  text-decoration: none;
+}
+.cancel a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.carousel-images img {
+  width: calc(33.3333% - 106.6667px);
+  float: left;
+  display: block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* 添加阴影 */
+  /* transition: transform 0.5s ease, margin 0.5s ease; */
+  transition: transform 0.5s ease-in-out; /* 平滑过渡效果 */
+  margin-left: 80px;
+  margin-top: 50px;
+}
+
+.carousel-images img.active {
+  transform: scale(1.1); /* 放大中间图片 */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); /* 中间图片的阴影更明显 */
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent; /* 移除背景色 */
+  color: rgb(9, 9, 9);
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 24px; /* 增大字体大小 */
+  z-index: 100;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+/* style.css */
+.marquee-box {
+  width: 100%; /* 视口宽度的100% */
+  height: 60px;
+  border: 1.5px solid #333;
+  background-color: transparent; /* 背景色透明 */
+  overflow: hidden; /* 隐藏溢出的内容 */
+  position: relative;
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  margin-top: 90px;
+}
+
+.marquee {
+  position: absolute;
+  white-space: nowrap; /* 防止文字换行 */
+  overflow: hidden;
+  display: flex; /* 使用flex布局保证内容连续 */
+  animation: scroll 30s linear infinite; /* 滚动动画 */
+}
+
+.marquee p {
+  font-size: 20px;
+  font-weight: bold; /* 加粗字体 */
+  color: rgb(12, 12, 12); /* 字体颜色加深 */
+  font-family: "Cormorant Garamond", serif;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.long {
+  margin-top: 100px;
+}
+
+/* styles.css */
+.message-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 100vh; /* 根据内容调整高度 */
+}
+
+.decorative-image {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0.64; /* 设置图片透明度 */
+  max-width: 100%; /* 根据需要调整图片占据容器宽度的百分比 */
+  height: 60%; /* 保持图片比例 */
+  margin-left: 160px;
+  z-index: 1;
+}
+
+.message-text {
+  position: relative;
+  writing-mode: vertical-rl;
+  height: 450px;
+  text-orientation: mixed; /* 适用于日语 */
+  line-height: 3; /* 设置行间距 */
+  letter-spacing: 3.5px; /* 设置字间距为2px */
+  z-index: 2;
+  font-family: "Lora", serif;
+}
+
+/* styles.css */
+.row {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  margin-bottom: 10px; /* 行与行之间的间距 */
+}
+
+.left-image,
+.right-image {
+  width: 20%; /* 图片宽度 */
+  height: auto; /* 保持图片的宽高比 */
+  margin-top: 100px;
+}
+
+.left-text,
+.right-text {
+  font-size: 30px;
+  font-family: "Cormorant Garamond", serif;
+  width: 50%; /* 文字区域宽度 */
+  text-align: center; /* 文字水平居中 */
+  margin: 0; /* 移除默认的段落间距 */
+}
+
+.gallery {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  flex-wrap: wrap;
+  margin-top: 100px;
+  padding: 0 50px; /* 横向填充，确保边缘有空间 */
+}
+
+.gallery-item {
+  width: calc(33.333% - 50px); /* 减去间隔后的宽度 */
+  margin-bottom: 50px; /* 行与行之间的间隔 */
+  text-align: center; /* 将文本对齐设置为居中 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 在交叉轴上居中对齐子项 */
+}
+
+.gallery-item img {
+  width: 50%; /* 图片宽度自适应容器 */
+  display: block; /* 块级元素 */
+  margin-bottom: 20px; /* 图片与价格之间的间隔 */
+  margin-top: 50px;
+}
+
+/* Medium screens (4 items per row) */
+@media screen and (max-width: 1200px) {
+  .gallery-item {
+    width: calc(25% - 50px); /* for 4 items per row */
+  }
+}
+
+/* Small screens (2 items per row) */
+@media screen and (max-width: 768px) {
+  .gallery-item {
+    width: calc(50% - 50px); /* for 2 items per row */
+  }
+}
+
+.price {
+  margin-bottom: 5px; /* 价格与购买按钮之间的间隔 */
+  font-size: 1em; /* 调整价格文字大小 */
+  font-family: "Lora", serif;
+}
+
+.buy-button {
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s ease;
+  padding: 6px 35px; /* 按钮内填充 */
+  margin-top: 30px;
+  border: 1px solid #333; /* 边框 */
+  border-radius: 50px;
+  background-color: #faf8f5;
+  font-size: 16px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.buy-button:hover {
+  color: #fff;
+  background-color: rgb(17, 17, 17);
+}
+/* iphone */
+.carousel-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.prevBtn,
+.nextBtn {
+  z-index: 10;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  font-size: 24px;
+  margin-left: 50px;
+  margin-right: 50px;
+  user-select: none;
+}
+
+.prevBtn {
+  left: 10px;
+}
+
+.nextBtn {
+  right: 10px;
+}
+
+.custom-image-container {
+  display: flex;
+  width: 100%;
+}
+
+.custom-image-box {
+  flex: 0 0 33.33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+.custom-image-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.custom-image-box.active img {
+  transform: scale(0.8);
+}
+
+.custom-image-box:not(.active) img {
+  transform: scale(0.6);
+}
+
+.parent {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+}
+
+.black-box {
+  background-color: #faf8f5;
+  border: 1px solid #333;
+  text-align: center;
+  padding: 15px 30px;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.black-box:hover {
+  color: #fff;
+  background-color: rgb(17, 17, 17);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  height: 200px;
+  margin-top: 60px;
+  background-color: #161615;
+  color: #fff;
+}
+
+.footer p {
+  font-family: "Lora", serif;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+}
+
+.appointment-section {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+  color: #333;
+}
+
+.appointment-section h2 {
+  text-align: center;
+  color: #333;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.form-field label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.form-field label i {
+  margin-right: 10px;
+}
+
+.form-field input[type="text"],
+.form-field input[type="date"],
+.form-field input[type="time"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: border-color 0.3s;
+}
+
+.form-field input[type="text"]:focus,
+.form-field input[type="date"]:focus,
+.form-field input[type="time"]:focus {
+  border-color: #020202; /* 聚焦时边框颜色 */
+  outline: none;
+}
+
+.form-field button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #050505;
+  color: #faf8f5;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.form-field button:hover {
+  background-color: #a3a3a28b;
+  color: #333;
+}
+
+.form-field button i {
+  margin-right: 5px;
+}
+
+/* 弹出窗口 */
+.black-box {
+  cursor: pointer;
+  /* 添加更多样式来美化这些盒子 */
+}
+
+.popup {
+  position: fixed; /* 固定定位 */
+  width: 300px; /* 弹窗宽度 */
+  height: 300px; /* 弹窗高度 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* 确保弹窗显示在其他元素上方 */
+}
+
+.popup-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#appointment-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #252525; /* 按钮背景颜色 */
+  color: white;
+  width: 45px; /* 设置宽度 */
+  height: 45px; /* 设置高度为与宽度相同 */
+  border-radius: 50%; /* 完全圆形 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: background-color 0.3s;
+  margin-right: 20px;
+}
+
+#appointment-button:hover {
+  background-color: #faf8f5; /* 鼠标悬停时的颜色变化 */
+  color: #020202;
+}
+
+#appointment-button i {
+  font-size: 24px; /* 图标大小 */
+}
+
+/* 针对需要逐渐显示的内容设置初始透明度 */
+.main-section {
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  opacity: 0; /* 初始状态为不可见 */
+  transform: translateY(20px); /* 初始状态稍微向下移动，以增强动画效果 */
+}
+.decorative-image {
+  opacity: 0; /* 初始状态设置为不可见 */
+  transition: opacity 2s ease; /* 透明度变化的过渡时间和方式 */
+}
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* 动画 */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.left-text.animate,
+.left-image.animate {
+  animation: slideInFromLeft 1s ease-out forwards;
+}
+
+.right-text.animate,
+.right-image.animate {
+  animation: slideInFromRight 1s ease-out forwards;
+}
+
+.row.main-section .left-text,
+.row.main-section .left-image {
+  opacity: 0;
+  transform: translateX(-10%);
+}
+
+.row.main-section .right-text,
+.row.main-section .right-image {
+  opacity: 0;
+  transform: translateX(10%);
+}
+
+.popup-content {
+  font-family: "Lora", serif;
+}

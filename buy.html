@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirm Order</title>
+  <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Lora&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Lora&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/buy.css">
+</head>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const flowers = {
+      1: {
+        name: "朝露の香り",
+        englishName: "Morning Dew Fragrance",
+        image: "images/21.jpg",
+        descriptionJP: "新しい朝がもたらす希望と、心を洗うような清らかさを感じさせます。",
+        descriptionEN: "Evokes the hope that comes with each new morning and the purity that washes over the soul.",
+        price: "￥6,280［税込］"
+      },
+      2: {
+        name: "夕暮れの光",
+        englishName: "Twilight Glow",
+        image: "images/22.jpg",
+        descriptionJP: "夕暮れ時の柔らかい光を象徴し、穏やかな終わりと新しい始まりを感じさせます。",
+        descriptionEN: "Symbolizes the soft light of dusk, suggesting a peaceful end and a new beginning.",
+        price: "￥6,380［税込］"
+      },
+      3: {
+        name: "春の息吹",
+        englishName: "Breath of Spring",
+        image: "images/29.jpg",
+        descriptionJP: "春の訪れとともに新しい生命が息吹く様子を描き出します。",
+        descriptionEN: "Depicts the new life that springs forth with the arrival of spring.",
+        price: "￥6,680［税込］"
+      },
+      4: {
+        name: "夏の記憶",
+        englishName: "Summer Memories",
+        image: "images/24.jpg",
+        descriptionJP: "夏の暑い日々とその中での美しい思い出を思い起こさせます。",
+        descriptionEN: "Recalls the hot days of summer and the beautiful memories made within them.",
+        price: "￥5,250［税込］"
+      },
+      5: {
+        name: "秋の収穫",
+        englishName: "Autumn Harvest",
+        image: "images/25.jpg",
+        descriptionJP: "豊かな秋の収穫と、その恵みを象徴します。",
+        descriptionEN: "Symbolizes the bountiful harvest of autumn and its blessings.",
+        price: "￥5,110［税込］"
+      },
+      6: {
+        name: "冬の静けさ",
+        englishName: "Winter's Quiet",
+        image: "images/26.jpg",
+        descriptionJP: "冬の静かな夜と穏やかな雪の情景を思い浮かべさせます。",
+        descriptionEN: "Brings to mind the quiet nights of winter and the gentle scene of falling snow.",
+        price: "￥5,200［税込］"
+      },
+      7: {
+        name: "夢見る薔薇",
+        englishName: "Dreaming Rose",
+        image: "images/27.jpg",
+        descriptionJP: "夢と希望を象徴する薔薇の美しさと香りを伝えます。",
+        descriptionEN: "Conveys the beauty and fragrance of roses that symbolize dreams and hopes.",
+        price: "￥4,928［税込］"
+      },
+      8: {
+        name: "潮騒のメロディ",
+        englishName: "Melody of the Sea",
+        image: "images/28.jpg",
+        descriptionJP: "潮の音と海の広がりを感じさせる、心安らぐ香りを持ちます。",
+        descriptionEN: "Has a comforting scent that evokes the sound of the tide and the expanse of the sea.",
+        price: "￥4,980［税込］"
+      },
+      9: {
+        name: "光彩陸離",
+        englishName: "Dazzling Splendor",
+        image: "images/23.jpg",
+        descriptionJP: "圧倒的な美しさと輝きを放つ、まばゆいばかりの花々を象徴します。",
+        descriptionEN: "Symbolizes dazzling flowers that radiate overwhelming beauty and brilliance.",
+        price: "￥4,280［税込］"
+      }
+    };
+
+
+    // Function to get query parameter by name
+    function getQueryParam(name) {
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      return urlSearchParams.get(name);
+    }
+
+    // Function to render the flower information based on the ID
+    function renderFlowerInfo(id) {
+      const flower = flowers[id];
+      if (!flower) {
+        console.error('Flower not found!');
+        return;
+      }
+
+      // Update the HTML content
+      document.querySelector('.left-box img').src = flower.image;
+      document.querySelector('.left-box img').alt = flower.englishName;
+      document.querySelector('.right-box h2').textContent = flower.name;
+      document.querySelector('.right-box h3').textContent = flower.englishName;
+      document.querySelector('.right-box .top').textContent = flower.descriptionJP;
+      document.querySelector('.right-box .bottom').textContent = flower.descriptionEN;
+      document.querySelector('.right-box .small').innerHTML = flower.price;
+    }
+
+    // Get the flower ID from the URL parameter
+    const flowerId = getQueryParam('id');
+
+    // Render the flower information if ID is found
+    if (flowerId) {
+      renderFlowerInfo(flowerId);
+    } else {
+      console.error('No flower ID provided in the URL.');
+    }
+    // Your existing JavaScript code here
+  });
+
+
+</script>
+
+<body>
+  <div class="title">
+    <h1>ORDER CONFIRMATION</h1>
+  </div>
+
+  <div class="outer-container">
+    <div class="container">
+      <div class="box left-box">
+        <!-- Initially, no src attribute is needed; it will be set by JavaScript -->
+        <img id="flowerImage" alt="Flower Image" style="width:100%; height:auto;">
+      </div>
+      <div class="box right-box">
+        <!-- Use IDs or classes that can be easily selected by JavaScript -->
+        <h2 id="flowerNameJP">Loading...</h2>
+        <h3 id="flowerNameEN">Loading...</h3>
+        <p id="flowerDescJP" class="top">Loading description...</p><br>
+        <p id="flowerDescEN" class="bottom">Loading description...</p>
+        <div id="flowerPrice" class="small">Loading price...</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="btn" id="cancel" onclick="location.href='./index.html#gallerylist';">Cancel</button>
+    <button class="btn" id="confirm">Confirm</button>
+
+  </div>
+</body>
+
+
+
+</html>
