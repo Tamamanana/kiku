@@ -17,15 +17,14 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* 使外部容器填满视口高度 */
+  height: 100vh;
 }
 
 .container {
-  display: flex; /* 使用Flexbox布局 */
-  align-items: center; /* 垂直居中子项 */
+  display: flex;
+  align-items: center;
   margin-left: 100px;
   margin-right: 100px;
-  /* 可以在这里添加一些padding或margin来调整布局 */
 }
 
 h2 {
@@ -57,7 +56,7 @@ h3 {
 }
 
 .box {
-  margin: 80px; /* 盒子之间的间距 */
+  margin: 80px;
 }
 
 .left-box {
@@ -74,26 +73,26 @@ h3 {
   font-family: "Lora", serif;
 }
 .button-container {
-  display: flex; /* 以flex布局显示按钮，确保它们并排 */
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 490px; /* 在按钮之间添加一些间隙 */
+  gap: 490px;
 }
 
 .btn {
-  padding: 10px 40px; /* 添加一些内边距以增大按钮大小 */
-  border: 1px solid #333; /* 移除边框 */
+  padding: 10px 40px;
+  border: 1px solid #333;
   background-color: #faf8f5;
-  color: #000; /* 设置默认文字颜色 */
+  color: #000;
   margin-bottom: 100px;
   border-radius: 50px;
   font-size: 20px;
   font-family: "Cormorant Garamond", serif;
-  cursor: pointer; /* 鼠标悬停时显示手形图标 */
-  transition: background-color 0.3s, color 0.3s; /* 平滑过渡效果 */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .btn:hover {
-  background-color: #000; /* 鼠标悬停时的背景颜色 */
-  color: #fff; /* 鼠标悬停时的文字颜色 */
+  background-color: #000;
+  color: #fff;
 }

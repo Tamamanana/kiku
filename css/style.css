@@ -11,14 +11,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 头部容器样式，初始透明背景 */
 .header-container {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background-color: transparent; /* 初始背景色透明 */
-  transition: background-color 0.3s; /* 背景颜色变化的平滑过渡 */
+  background-color: transparent;
+  transition: background-color 0.3s;
   z-index: 1001;
 }
 
@@ -26,10 +25,10 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 50px; /* 设置内边距 */
+  padding: 10px 50px;
 }
 .main-logo img {
-  width: 100px; /* 调整 logo 的宽度 */
+  width: 100px;
   height: auto;
 }
 .main-logo {
@@ -37,17 +36,16 @@ html {
   margin-left: 31.45322px;
   margin-top: 23.443px;
 }
-/* 移除#logo和#hamburger-menu的固定定位 */
+
 #logo,
 #hamburger-menu {
   position: static;
 }
 
-/* logo样式 */
 #logo {
   display: flex;
   visibility: hidden;
-  padding: 10px; /* 调整 logo 的内边距 */
+  padding: 10px;
 }
 
 #logo a {
@@ -55,11 +53,10 @@ html {
 }
 
 #logo img {
-  width: 100px; /* 调整 logo 的宽度 */
+  width: 100px;
   height: auto;
 }
 
-/* 汉堡包菜单样式 */
 #hamburger-menu {
   cursor: pointer;
   width: 30px;
@@ -78,12 +75,11 @@ html {
   transition: all 0.3s ease;
 }
 
-/* 全屏菜单样式 */
 #fullscreen-menu {
   position: fixed;
   top: 0;
   left: 0;
-  clip-path: circle(0% at 100% 0); /* 初始为圆形 */
+  clip-path: circle(0% at 100% 0);
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.965);
@@ -96,12 +92,10 @@ html {
 }
 
 #fullscreen-menu.show {
-  /* transform: scale(1); */
-  clip-path: circle(150% at 100% 0); /* 扩展为全屏 */
+  clip-path: circle(150% at 100% 0);
 }
 
 #fullscreen-menu nav a {
-  /* 其他样式保持不变 */
   display: block;
   color: white;
   text-decoration: none;
@@ -111,7 +105,6 @@ html {
   font-family: "Lora", serif;
 }
 
-/* 汉堡包激活状态 */
 #hamburger-menu.hamburger-active span:nth-child(1),
 #hamburger-menu.hamburger-active span:nth-child(3) {
   background: rgb(250, 246, 246);
@@ -130,7 +123,6 @@ html {
   background: white;
 }
 
-/* 全屏菜单中的菜单项样式 */
 #fullscreen-menu nav a {
   display: block;
   border-radius: 50px;
@@ -141,15 +133,14 @@ html {
   margin: 40px 0;
   font-size: 30px;
   text-align: center;
-  transition: background-color 0.3s, color 0.3s; /* 平滑过渡效果 */
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* 鼠标悬停在菜单项上时的样式 */
 #fullscreen-menu nav a:hover {
   border-radius: 50px;
-  color: rgb(0, 0, 0); /* 文字颜色，可以根据需要调整 */
+  color: rgb(0, 0, 0);
   background-color: #faf8f5;
-  padding: 20px; /* 增加填充以使方框更明显 */
+  padding: 20px;
 }
 
 .line {
@@ -174,10 +165,10 @@ html {
 
 .main-image {
   position: relative;
-  display: flex; /* 应用 Flexbox */
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
-  height: 100vh; /* 容器高度设为视口高度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   margin-top: 15px;
 }
 
@@ -192,9 +183,9 @@ html {
 }
 
 .image-title span {
-  display: inline-block; /* 允许应用转换 */
-  animation: wave 1.5s infinite; /* 应用动画 */
-  animation-delay: calc(0.1s * var(--i)); /* 动画延迟 */
+  display: inline-block;
+  animation: wave 1.5s infinite;
+  animation-delay: calc(0.1s * var(--i));
 }
 
 .main-image img {
@@ -220,7 +211,7 @@ html {
 
 h1 {
   font-size: 110px;
-  letter-spacing: 80px; /* 减少标题中字母之间的间距 */
+  letter-spacing: 80px;
 }
 
 .logo-container {
@@ -275,8 +266,8 @@ h1 {
 }
 
 .fancy-title-text {
-  position: relative; /* 添加相对定位 */
-  z-index: 2; /* 确保文字在图片上方 */
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -290,26 +281,26 @@ h1 {
 }
 
 .right-float-image {
-  position: absolute; /* 使用绝对定位 */
-  right: 0; /* 右对齐 */
+  position: absolute;
+  right: 0;
   top: 0;
-  width: 23%; /* 图片宽度 */
-  z-index: 1; /* 图片在文字下方 */
+  width: 23%;
+  z-index: 1;
   height: auto;
   margin-top: 70%;
 }
 
 .image-with-lines-container {
-  text-align: center; /* 使图片居中 */
+  text-align: center;
   margin-top: 180px;
   margin-bottom: 200px;
 }
 
 .center-aligned-image {
-  width: 70%; /* 图片宽度 */
-  height: auto; /* 保持纵横比 */
-  display: block; /* 使图片为块级元素 */
-  margin: 0 auto; /* 图片居中 */
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .big-box {
@@ -320,30 +311,30 @@ h1 {
 }
 
 .medium-box {
-  width: 50%; /* 中盒子占据大盒子的一半宽度 */
+  width: 50%;
 }
 
 .left {
-  padding-right: 10px; /* 如果需要，在中盒子之间留出一些空间 */
+  padding-right: 10px;
 }
 
 .right {
-  padding-left: 10px; /* 如果需要，在中盒子之间留出一些空间 */
-  display: flex; /* 使图片垂直居中 */
-  align-items: center; /* 垂直居中 */
-  justify-content: center; /* 水平居中 */
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .small-box {
-  margin-bottom: 50px; /* 如果需要，在小盒子之间留出一些空间 */
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
 }
 
 .medium-box left {
   display: flex;
-  flex-direction: column; /* 子元素沿垂直方向排列 */
-  align-items: baseline; /* 基线对齐 */
+  flex-direction: column;
+  align-items: baseline;
 }
 
 .small-box h2,
@@ -352,7 +343,6 @@ h1 {
   text-align: center;
   letter-spacing: 3px;
   font-family: "Cormorant Garamond", serif;
-  /* 添加标题的样式 */
 }
 
 .small-box h2 {
@@ -364,12 +354,12 @@ h1 {
   line-height: 3;
   margin-left: 180px;
   font-family: "Lora", serif;
-  overflow-wrap: break-word; /* 确保长单词能够在边界处断开 */
+  overflow-wrap: break-word;
 }
 
 .medium-box.right img {
-  width: 50%; /* 图片宽度设置为盒子的100%，根据需要调整 */
-  height: auto; /* 保持图片纵横比 */
+  width: 50%;
+  height: auto;
 }
 
 .big-container {
@@ -380,26 +370,26 @@ h1 {
 }
 
 .medium-container {
-  flex-basis: 50%; /* 每个中容器基于flex容器剩余空间的一半 */
+  flex-basis: 50%;
   display: flex;
-  flex-direction: column; /* 使中容器内的内容垂直排列 */
-  align-items: center; /* 垂直居中对齐中容器内的内容 */
-  justify-content: center; /* 水平居中对齐中容器内的内容 */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .medium-container right {
   display: flex;
-  flex-direction: column; /* 确保子元素垂直排列 */
-  align-items: flex-start; /* 子元素左对齐 */
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .text-box {
-  width: 100%; /* 文本盒子宽度设置为中容器的100% */
-  text-align: center; /* 文本居中 */
-  margin: 30px 0; /* 为文本盒子添加上下外边距 */
-  display: flex; /* 应用Flexbox */
-  align-items: baseline; /* 基线对齐 */
-  width: 100%; /* 确保占满整个容器宽度 */
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+  display: flex;
+  align-items: baseline;
+  width: 100%;
 }
 .text-box p {
   text-align: left;
@@ -408,11 +398,10 @@ h1 {
 }
 
 .centered-img {
-  max-width: 60%; /* 图片最大宽度，根据需要调整 */
-  height: auto; /* 保持图片纵横比 */
+  max-width: 60%;
+  height: auto;
 }
 
-/* 轮播 */
 .carousel {
   position: relative;
   max-width: 1100px;
@@ -433,28 +422,27 @@ h1 {
   width: calc(33.3333% - 106.6667px);
   float: left;
   display: block;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* 添加阴影 */
-  /* transition: transform 0.5s ease, margin 0.5s ease; */
-  transition: transform 0.5s ease-in-out; /* 平滑过渡效果 */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease-in-out;
   margin-left: 80px;
   margin-top: 50px;
 }
 
 .carousel-images img.active {
-  transform: scale(1.1); /* 放大中间图片 */
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); /* 中间图片的阴影更明显 */
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
 }
 
 .carousel button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: transparent; /* 移除背景色 */
+  background-color: transparent;
   color: rgb(9, 9, 9);
   border: none;
   cursor: pointer;
   padding: 10px;
-  font-size: 24px; /* 增大字体大小 */
+  font-size: 24px;
   z-index: 100;
 }
 
@@ -466,31 +454,30 @@ h1 {
   right: 0;
 }
 
-/* style.css */
 .marquee-box {
-  width: 100%; /* 视口宽度的100% */
+  width: 100%;
   height: 60px;
   border: 1.5px solid #333;
-  background-color: transparent; /* 背景色透明 */
-  overflow: hidden; /* 隐藏溢出的内容 */
+  background-color: transparent;
+  overflow: hidden;
   position: relative;
   display: flex;
-  align-items: center; /* 垂直居中 */
+  align-items: center;
   margin-top: 90px;
 }
 
 .marquee {
   position: absolute;
-  white-space: nowrap; /* 防止文字换行 */
+  white-space: nowrap;
   overflow: hidden;
-  display: flex; /* 使用flex布局保证内容连续 */
-  animation: scroll 30s linear infinite; /* 滚动动画 */
+  display: flex;
+  animation: scroll 30s linear infinite;
 }
 
 .marquee p {
   font-size: 20px;
-  font-weight: bold; /* 加粗字体 */
-  color: rgb(12, 12, 12); /* 字体颜色加深 */
+  font-weight: bold;
+  color: rgb(12, 12, 12);
   font-family: "Cormorant Garamond", serif;
 }
 
@@ -512,18 +499,18 @@ h1 {
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
-  height: 100vh; /* 根据内容调整高度 */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .decorative-image {
   position: absolute;
   left: 0;
   bottom: 0;
-  opacity: 0.64; /* 设置图片透明度 */
-  max-width: 100%; /* 根据需要调整图片占据容器宽度的百分比 */
-  height: 60%; /* 保持图片比例 */
+  opacity: 0.64;
+  max-width: 100%;
+  height: 60%;
   margin-left: 160px;
   z-index: 1;
 }
@@ -532,9 +519,9 @@ h1 {
   position: relative;
   writing-mode: vertical-rl;
   height: 450px;
-  text-orientation: mixed; /* 适用于日语 */
-  line-height: 3; /* 设置行间距 */
-  letter-spacing: 3.5px; /* 设置字间距为2px */
+  text-orientation: mixed;
+  line-height: 3;
+  letter-spacing: 3.5px;
   z-index: 2;
   font-family: "Lora", serif;
 }
@@ -542,15 +529,15 @@ h1 {
 /* styles.css */
 .row {
   display: flex;
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
-  margin-bottom: 10px; /* 行与行之间的间距 */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .left-image,
 .right-image {
-  width: 20%; /* 图片宽度 */
-  height: auto; /* 保持图片的宽高比 */
+  width: 20%;
+  height: auto;
   margin-top: 100px;
 }
 
@@ -558,52 +545,50 @@ h1 {
 .right-text {
   font-size: 30px;
   font-family: "Cormorant Garamond", serif;
-  width: 50%; /* 文字区域宽度 */
-  text-align: center; /* 文字水平居中 */
-  margin: 0; /* 移除默认的段落间距 */
+  width: 50%;
+  text-align: center;
+  margin: 0;
 }
 
 .gallery {
   display: flex;
-  justify-content: center; /* 水平居中 */
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 100px;
-  padding: 0 50px; /* 横向填充，确保边缘有空间 */
+  padding: 0 50px;
 }
 
 .gallery-item {
-  width: calc(33.333% - 50px); /* 减去间隔后的宽度 */
-  margin-bottom: 50px; /* 行与行之间的间隔 */
-  text-align: center; /* 将文本对齐设置为居中 */
+  width: calc(33.333% - 50px);
+  margin-bottom: 50px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 在交叉轴上居中对齐子项 */
+  align-items: center;
 }
 
 .gallery-item img {
-  width: 50%; /* 图片宽度自适应容器 */
-  display: block; /* 块级元素 */
-  margin-bottom: 20px; /* 图片与价格之间的间隔 */
+  width: 50%;
+  display: block;
+  margin-bottom: 20px;
   margin-top: 50px;
 }
 
-/* Medium screens (4 items per row) */
 @media screen and (max-width: 1200px) {
   .gallery-item {
-    width: calc(25% - 50px); /* for 4 items per row */
+    width: calc(25% - 50px);
   }
 }
 
-/* Small screens (2 items per row) */
 @media screen and (max-width: 768px) {
   .gallery-item {
-    width: calc(50% - 50px); /* for 2 items per row */
+    width: calc(50% - 50px);
   }
 }
 
 .price {
-  margin-bottom: 5px; /* 价格与购买按钮之间的间隔 */
-  font-size: 1em; /* 调整价格文字大小 */
+  margin-bottom: 5px;
+  font-size: 1em;
   font-family: "Lora", serif;
 }
 
@@ -611,9 +596,9 @@ h1 {
   cursor: pointer;
   color: #333;
   transition: background-color 0.3s ease;
-  padding: 6px 35px; /* 按钮内填充 */
+  padding: 6px 35px;
   margin-top: 30px;
-  border: 1px solid #333; /* 边框 */
+  border: 1px solid #333;
   border-radius: 50px;
   background-color: #faf8f5;
   font-size: 16px;
@@ -688,8 +673,8 @@ h1 {
 
 .parent {
   display: flex;
-  align-items: center; /* 垂直居中 */
-  justify-content: center; /* 水平居中 */
+  align-items: center;
+  justify-content: center;
 }
 
 .black-box {
@@ -741,7 +726,7 @@ footer {
   margin: 100px auto;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: #333;
 }
 
@@ -782,7 +767,7 @@ footer {
 .form-field input[type="text"]:focus,
 .form-field input[type="date"]:focus,
 .form-field input[type="time"]:focus {
-  border-color: #020202; /* 聚焦时边框颜色 */
+  border-color: #020202;
   outline: none;
 }
 
@@ -809,23 +794,21 @@ footer {
   margin-right: 5px;
 }
 
-/* 弹出窗口 */
 .black-box {
   cursor: pointer;
-  /* 添加更多样式来美化这些盒子 */
 }
 
 .popup {
-  position: fixed; /* 固定定位 */
-  width: 300px; /* 弹窗宽度 */
-  height: 300px; /* 弹窗高度 */
+  position: fixed;
+  width: 300px;
+  height: 300px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   border-radius: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1; /* 确保弹窗显示在其他元素上方 */
+  z-index: 1;
 }
 
 .popup-content {
@@ -851,11 +834,11 @@ footer {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  background-color: #252525; /* 按钮背景颜色 */
+  background-color: #252525;
   color: white;
-  width: 45px; /* 设置宽度 */
-  height: 45px; /* 设置高度为与宽度相同 */
-  border-radius: 50%; /* 完全圆形 */
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -867,23 +850,22 @@ footer {
 }
 
 #appointment-button:hover {
-  background-color: #faf8f5; /* 鼠标悬停时的颜色变化 */
+  background-color: #faf8f5;
   color: #020202;
 }
 
 #appointment-button i {
-  font-size: 24px; /* 图标大小 */
+  font-size: 24px;
 }
 
-/* 针对需要逐渐显示的内容设置初始透明度 */
 .main-section {
   transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-  opacity: 0; /* 初始状态为不可见 */
-  transform: translateY(20px); /* 初始状态稍微向下移动，以增强动画效果 */
+  opacity: 0;
+  transform: translateY(20px);
 }
 .decorative-image {
-  opacity: 0; /* 初始状态设置为不可见 */
-  transition: opacity 2s ease; /* 透明度变化的过渡时间和方式 */
+  opacity: 0;
+  transition: opacity 2s ease;
 }
 @keyframes slideInFromLeft {
   0% {
@@ -942,4 +924,61 @@ footer {
 
 .popup-content {
   font-family: "Lora", serif;
+}
+@media (max-width: 768px) {
+  .header,
+  .main-section,
+  .gallery-item,
+  .carousel-container,
+  .row {
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+  .message-text {
+    font-size: 14px;
+  }
+  .image-title {
+    font-size: 45px;
+  }
+  .right-text {
+    font-size: 18px;
+  }
+  .left-text {
+    font-size: 18px;
+  }
+  .row.main-section {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .small-box p {
+    min-width: 100%;
+    margin: 0 auto;
+  }
+  .small-box h2 {
+    min-width: 100%;
+    margin: 0 auto;
+  }
+  .small-box {
+    margin-top: 45px;
+  }
+
+  .medium-box.right img {
+    min-width: 60%;
+  }
+  .medium-container.left {
+    min-width: 30%;
+  }
+  .medium-container.left img {
+    min-width: 100%;
+  }
+  .medium-container.right {
+    min-width: 70%;
+  }
+  .text-box h2 {
+    font-size: 30px;
+  }
+  .small-box h2 {
+    font-size: 30px;
+  }
 }

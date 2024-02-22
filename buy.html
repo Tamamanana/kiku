@@ -97,13 +97,13 @@
     };
 
 
-    // Function to get query parameter by name
+
     function getQueryParam(name) {
       const urlSearchParams = new URLSearchParams(window.location.search);
       return urlSearchParams.get(name);
     }
 
-    // Function to render the flower information based on the ID
+
     function renderFlowerInfo(id) {
       const flower = flowers[id];
       if (!flower) {
@@ -111,7 +111,7 @@
         return;
       }
 
-      // Update the HTML content
+
       document.querySelector('.left-box img').src = flower.image;
       document.querySelector('.left-box img').alt = flower.englishName;
       document.querySelector('.right-box h2').textContent = flower.name;
@@ -121,16 +121,16 @@
       document.querySelector('.right-box .small').innerHTML = flower.price;
     }
 
-    // Get the flower ID from the URL parameter
+
     const flowerId = getQueryParam('id');
 
-    // Render the flower information if ID is found
+
     if (flowerId) {
       renderFlowerInfo(flowerId);
     } else {
       console.error('No flower ID provided in the URL.');
     }
-    // Your existing JavaScript code here
+
   });
 
 
@@ -144,11 +144,9 @@
   <div class="outer-container">
     <div class="container">
       <div class="box left-box">
-        <!-- Initially, no src attribute is needed; it will be set by JavaScript -->
         <img id="flowerImage" alt="Flower Image" style="width:100%; height:auto;">
       </div>
       <div class="box right-box">
-        <!-- Use IDs or classes that can be easily selected by JavaScript -->
         <h2 id="flowerNameJP">Loading...</h2>
         <h3 id="flowerNameEN">Loading...</h3>
         <p id="flowerDescJP" class="top">Loading description...</p><br>
@@ -160,7 +158,7 @@
 
   <div class="button-container">
     <button class="btn" id="cancel" onclick="location.href='./index.html#gallerylist';">Cancel</button>
-    <button class="btn" id="confirm">Confirm</button>
+    <button class="btn" id="confirm" onclick="location.href='./success.html';">Confirm</button>
 
   </div>
 </body>

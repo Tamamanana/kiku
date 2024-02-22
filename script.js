@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // 汉堡菜单逻辑
   const hamburgerMenu = document.getElementById("hamburger-menu");
   const fullscreenMenu = document.getElementById("fullscreen-menu");
   const menuItems = fullscreenMenu.querySelectorAll("nav a");
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 页面滚动事件
   window.addEventListener("scroll", function () {
     var headerContainer = document.querySelector(".header-container");
     if (window.pageYOffset > 50) {
@@ -26,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 轮播图
   let slideIndex = 0;
   showSlides(slideIndex);
 
@@ -54,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
     showSlides((slideIndex += n));
   };
 
-  // iPhone轮播
   const carouselContainers = document.querySelectorAll(".carousel-container");
 
   carouselContainers.forEach((container) => {
@@ -89,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 购买按钮逻辑
   const buyButtons = document.querySelectorAll(".buy-button");
 
   buyButtons.forEach(function (button) {
@@ -99,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 弹出窗口逻辑
   document.querySelectorAll(".black-box").forEach((item) => {
     item.addEventListener("click", function () {
       document.getElementById("popup").style.display = "block";
@@ -110,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("popup").style.display = "none";
   });
 });
-// 预约
+
 document
   .getElementById("appointment-button")
   .addEventListener("click", function (e) {
@@ -120,7 +114,6 @@ document
     });
   });
 
-// 加载动画
 document.addEventListener("DOMContentLoaded", function () {
   const loader = document.getElementById("loading-animation");
   setTimeout(() => {
@@ -130,25 +123,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, 3000);
 });
-// 渐出
+
 document.addEventListener("DOMContentLoaded", function () {
-  // 假设你的元素已经有了自己的类名，这里我们使用`.main-section`作为示例
   const sections = document.querySelectorAll(".main-section");
 
   const revealSections = () => {
     const windowHeight = window.innerHeight;
 
     sections.forEach((section) => {
-      // 元素距离视口顶部的距离
       const revealTop = section.getBoundingClientRect().top;
-      // 元素显示的触发点（视口的一部分）
       const revealPoint = 150;
 
       if (revealTop < windowHeight - revealPoint) {
         section.style.opacity = 1;
         section.style.transform = "translateY(0)";
       } else {
-        // 如果你不想在元素再次离开视口时隐藏它们，这行可以移除
         section.style.opacity = 0;
         section.style.transform = "translateY(20px)";
       }
@@ -156,12 +145,12 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   window.addEventListener("scroll", revealSections);
-  revealSections(); // 确保在页面加载时就检查一次
+  revealSections();
 });
-// 打字机
+
 document.addEventListener("DOMContentLoaded", function () {
   const typewriterText = document.getElementById("typewriter-text");
-  const image = document.querySelector(".decorative-image"); // 获取图片元素
+  const image = document.querySelector(".decorative-image");
   let typed = false;
 
   function isElementInView(element) {
@@ -195,14 +184,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const text = typewriterText.getAttribute("data-text");
       typewriterText.innerHTML = "";
       typeWriter(typewriterText, text, 0, () => {
-        // 打字机效果完成后渐变显示图片
-        image.style.opacity = 1; // 逐渐显示图片
+        image.style.opacity = 1;
       });
       typed = true;
     }
   });
 });
-// 动画
+
 document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -213,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     },
     { threshold: 0.1 }
-  ); // 调整threshold值以优化触发时机
+  );
 
   const elements = document.querySelectorAll(
     ".row.main-section .left-text, .row.main-section .right-text, .row.main-section .left-image, .row.main-section .right-image"
@@ -223,18 +211,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// p显示
 document.addEventListener("DOMContentLoaded", function () {
-  // 为每个触发器添加点击事件
   document.querySelectorAll(".parent").forEach((parent, index) => {
     parent.addEventListener("click", function () {
-      // 根据点击的元素设置不同的内容和字体样式
       let contentText = "";
       let fontStyleClass = "";
       switch (index) {
         case 0:
           contentText =
-            "登录页面のデザインは、花の形をヒントにしています。<br>シンプルかつ実用的をモットーに、使いやすさと視覚的魅力を兼ね備えたインターフェースを目指しています。";
+            "登録ページのデザインは、花の形をヒントにしています。<br>シンプルかつ実用的をモットーに、使いやすさと視覚的魅力を兼ね備えたインターフェースを目指しています。";
           fontStyleClass = "font-style-1";
           break;
         case 1:
@@ -243,27 +228,27 @@ document.addEventListener("DOMContentLoaded", function () {
           fontStyleClass = "font-style-2";
           break;
         case 2:
-          contentText = "オーダーページの紹介文...";
+          contentText =
+            "シンプルでユーザーフレンドリーな注文ページの主な目的は、ユーザーが自分のショッピングの詳細、合計金額、支払い方法、および配送情報などを明確かつ迅速に確認できるようにすることです。";
           fontStyleClass = "font-style-3";
           break;
       }
-      // 显示弹出窗口并设置内容和字体
+
       const popup = document.getElementById("popup");
       popup.style.display = "block";
       const popupContent = popup.querySelector(".popup-content p");
       popupContent.innerHTML = contentText;
-      // 清除之前可能添加的任何字体样式类
+
       popupContent.classList.remove(
         "font-style-1",
         "font-style-2",
         "font-style-3"
       );
-      // 添加当前字体样式类
+
       popupContent.classList.add(fontStyleClass);
     });
   });
 
-  // 关闭按钮的逻辑
   document
     .querySelector(".popup .close")
     .addEventListener("click", function () {
